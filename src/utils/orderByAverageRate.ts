@@ -1,5 +1,5 @@
 import calculateMoviesAverage from "./calculateMoviesAverage";
-import { Movie } from "./movie";
+import { Movie } from "../interfaces/movie";
 
 function orderByAverageRate(movies: Movie[]) {
     const moviesWithAverage = calculateMoviesAverage(movies);

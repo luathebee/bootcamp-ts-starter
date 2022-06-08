@@ -1,5 +1,5 @@
-import { Movie } from "./movie"
-import User from "./user"
+import { Movie } from "../interfaces/movie"
+import User from "../interfaces/user"
 
 function filterMoviesByIndicativeRating(movies: Movie[], user: User): Movie[] {
     return movies.filter((movie) => {

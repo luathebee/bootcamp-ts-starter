@@ -1,5 +1,5 @@
-import { Movie } from "./movie";
-import User from "./user";
+import { Movie } from "../interfaces/movie";
+import User from "../interfaces/user";
 
 function addMoviesViaIndex(user: User, movies: Movie[], ...ids: number[]):User {
 

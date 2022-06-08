@@ -1,4 +1,4 @@
-import { Movie } from "./movie";
+import { Movie } from "../interfaces/movie";
 import removeMovieWithoutRatings from "./removemoviewithoutrating";
 
 interface Average {
@@ -22,3 +22,5 @@ function calculateMoviesAverage(movies: Movie[]): MovieWithAverage[] {
         }
     });
 }
+
+export default calculateMoviesAverage;

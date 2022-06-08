@@ -1,9 +1,9 @@
-import addMoviesViaIndex from "./addmoviesviaindex";
-import filterMoviesByIndicativeRating from "./filterMoviesByIndicativeRating";
-import IndicativeRating from "./indicativerating";
-import { Movie } from "./movie";
-import orderByAverageRate from "./orderByAverageRate";
-import User from "./user";
+import addMoviesViaIndex from "./utils/addmoviesviaindex";
+import filterMoviesByIndicativeRating from "./utils/filterMoviesByIndicativeRating";
+import IndicativeRating from "./enums/indicativerating";
+import { Movie } from "./interfaces/movie";
+import orderByAverageRate from "./utils/orderByAverageRate";
+import User from "./interfaces/user";
 
 
 const movies: Movie[] = [

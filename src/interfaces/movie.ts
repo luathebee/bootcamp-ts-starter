@@ -1,4 +1,4 @@
-import IndicativeRating from "./indicativerating";
+import IndicativeRating from "../enums/indicativerating";
 
 export interface Movie {
     name: string;
