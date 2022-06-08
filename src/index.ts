@@ -155,4 +155,15 @@ Problema 1
 Adicionar ao usuário um array de "minha lista" onde é possível armazenar os filmes
 Criar um metodo para adicionar um filme a lista do usuário
 
+/*
+
+Problema 2 
+
+    Adicionar uma propriedade ID ao filme
+    
+    Adicionar um método que passados os ids por rest parameter, podemos adicioná-los a lista do usuário
+
+    Desafio: Separar em arquivos
 */
+
+
