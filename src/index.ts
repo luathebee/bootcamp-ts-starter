@@ -1,3 +1,5 @@
+import { Movie } from "./movie";
+
 let userId: string | number | boolean;
 
 userId = 0;
@@ -12,29 +14,24 @@ enum IndicativeRating {
     A18 = 18,
 }
 
-interface Movie {
-    name: string;
-
-    ratings: number[];
-
-    indicativeRating: IndicativeRating;
-}
-
 const movies: Movie[] = [
     {
         name: 'Spider Man',
         ratings: [1, 5, 3],
-        indicativeRating: IndicativeRating.AL
+        indicativeRating: IndicativeRating.AL,
+        id: 1,
     },
     {
         name: 'Doctor Strange',
         ratings: [5, 5, 3],
-        indicativeRating: IndicativeRating.A18
+        indicativeRating: IndicativeRating.A18,
+        id: 2,
     },
     {
         name: 'Avengers',
         ratings: [],
-        indicativeRating: IndicativeRating.A12
+        indicativeRating: IndicativeRating.A12,
+        id: 3,
     }
 ];
 
@@ -90,8 +87,8 @@ interface User {
 }
 
 const user: User = {
-    name: "Bruno Benicio",
-    age: 17,
+    name: "Rubeirinho",
+    age: 16,
     myList: []
 }
 
@@ -132,19 +129,39 @@ addMovieToUserList(
     {
         name: "Toy Story",
         ratings: [5, 5, 5],
-        indicativeRating: IndicativeRating.AL
+        indicativeRating: IndicativeRating.AL,
+        id: 4,
     },
     user
 )
 
-addMovieToUserList(
-    {
-        name: "Toy Story 2",
-        ratings: [5, 5, 5],
-        indicativeRating: IndicativeRating.AL
-    },
-    user
-)
+function addMovieIndexToUserList(user: User, movies: Movie[], ...ids: number[]):User {
+
+    const newList: Movie[] = [];
+    movies.forEach(movie => {
+        const isMovieInList = ids.includes(movie.id);
+
+        if(!isMovieInList) {
+            throw new Error("Filme não está na lista");
+        }
+
+        newList.push(movie);
+    })
+
+    return {
+        ...user,
+        myList: [
+            ... user.myList,
+            ... newList,
+        ]
+    }
+
+}
+
+const newUserwithNewList = addMovieIndexToUserList(user,movies, 1,2,3)
+
+console.log(newUserwithNewList)
+
 
 //console.log(user);
 
