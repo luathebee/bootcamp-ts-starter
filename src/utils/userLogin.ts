@@ -10,19 +10,21 @@ import mainMenu from "./mainMenu";
 async function userLogin(users: User[]) {
     console.log("Boas Vindas!")
     while(1){
-        const promptLogin = await inquirer.prompt(loginUserQuestion);
-        //console.log(promptLogin.option);
-        const promptPassword = await inquirer.prompt(loginPasswordQuestion);
-        //console.log(promptPassword.option);
-        const foundUser = users.find(user => user.id == promptLogin.option)
+        const promptId = await inquirer.prompt(loginUserQuestion);
+        if (isNaN(promptId.option)){
+            console.log("Login inválido!\n")
+            continue;
+        }
+        const foundUser = users.find(user => user.id == promptId.option)
         if (foundUser){
+            const promptPassword = await inquirer.prompt(loginPasswordQuestion);
             if (foundUser.password == promptPassword.option){
-                console.log('Boas vindas ' + foundUser.name + '!')
+                console.log('\nBoas vindas ' + foundUser.name + '!\n')
                 await mainMenu();
             }
-            else(console.log("Senha incorreta!"))
+            else(console.log("Senha incorreta.\n"))
         }
-        else{console.log("Usuário não encontrado.")}
+        else{console.log("Usuário não encontrado.\n")}
     }
 
 }
