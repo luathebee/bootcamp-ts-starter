@@ -5,7 +5,9 @@ export interface Movie {
 
     ratings: number[];
 
-    indicativeRating: IndicativeRating;
-
     id: number;
+
+    duration: number;
+
+    directedBy: string;
 }
