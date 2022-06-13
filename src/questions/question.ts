@@ -8,17 +8,17 @@ export const mainQuestions = [
 
 export const chooseMovieQuestions = [
     {
-        type: "input",
+        type: "number",
         name: "option",
-        message: "Qual filme?"
+        message: "Qual a Id do filme a avaliar?"
     }
 ]
 
 export const rateQuestions = [
     {
-        type: "input",
+        type: "number",
         name: "option",
-        message: "Qual avaliacao de 0 a 5?"
+        message: "Qual avaliacao de 0 a 10?"
     }
 ]
 
@@ -46,14 +46,3 @@ export const addMoviesToListQuestion = [
         message: "Digite o Id do Filme Desejado:"
     }
 ]
-
-/*const questions = [
-    mainQuestions,
-    chooseMovieQuestions,
-    rateQuestions,
-    loginPasswordQuestion,
-    loginUserQuestion,
-]
-
-
-export default questions;*/

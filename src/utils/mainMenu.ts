@@ -33,18 +33,22 @@ async function mainMenu(loggedUser: User, moviesFromDB: Movie[]) {
                 movies = await movieService.listAll();
                 console.log("Filmes Atualizados!: ")
                 console.log(movies);
+            break;
 
             case possibleAnswers.RATE_MOVIE:
-                let movieId;
+                let movieId: Number;
                 let rate;
 
                 const chooseMovieAnswers = await inquirer.prompt(chooseMovieQuestions);
-                movieId = chooseMovieAnswers.option;
+                 movieId = chooseMovieAnswers.option;
 
                 const rateAnswers = await inquirer.prompt(rateQuestions);
                 rate = rateAnswers.option;
 
-                console.log(movieId, rate);
+                const movieToRateIndex = movies.findIndex((movie) => movie.id == movieId)
+                movies[movieToRateIndex].ratings.push(rate);
+                
+                console.log(movieId, rate, movies[movieToRateIndex].ratings);
 
                 break;
             case possibleAnswers.ADD_MOVIES_TO_LIST:
