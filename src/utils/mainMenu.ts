@@ -7,6 +7,7 @@ import { mainQuestions,
 import userLogin from "./userLogin";
 import User from "../interfaces/user";
 import { Movie } from "../interfaces/movie";
+import calculateMoviesAverage from "./calculateMoviesAverage";
 
 async function mainMenu(loggedUser: User, moviesFromDB: Movie[]) {
     var exit = 0;
@@ -18,24 +19,26 @@ async function mainMenu(loggedUser: User, moviesFromDB: Movie[]) {
 
         var movieService = new MovieService();
 
-        const possibleAnswers = {
+        const menuAnswers = {
             DOWNLOAD: '1',
             RATE_MOVIE: '2',
             ADD_MOVIES_TO_LIST: '3',
-            EXIT: '4'
+            PRINT_RATED_MOVIES: '4',
+            EXIT: '5'
         };
 
         switch(answers.option) {
 
-            case possibleAnswers.DOWNLOAD:
+            case menuAnswers.DOWNLOAD:
 
                 console.log(movies,typeof movies)
                 movies = await movieService.listAll();
                 console.log("Filmes Atualizados!: ")
                 console.log(movies);
+
             break;
 
-            case possibleAnswers.RATE_MOVIE:
+            case menuAnswers.RATE_MOVIE:
                 let movieId: Number;
                 let rate;
 
@@ -51,13 +54,16 @@ async function mainMenu(loggedUser: User, moviesFromDB: Movie[]) {
                 console.log(movieId, rate, movies[movieToRateIndex].ratings);
 
                 break;
-            case possibleAnswers.ADD_MOVIES_TO_LIST:
+            case menuAnswers.ADD_MOVIES_TO_LIST:
                 const addMoviesToListAnswer = await inquirer.prompt(addMoviesToListQuestion)
                 console.log(addMoviesToListAnswer)
                 
-
+            case menuAnswers.PRINT_RATED_MOVIES:
+                calculateMoviesAverage(movies).forEach(movie => {
+                    console.log(movie.title + '\n Media: ' + movie.average);
+                });
                 break;
-            case possibleAnswers.EXIT:
+            case menuAnswers.EXIT:
                 exit = 1;
                 console.log("Finalizando...")
                 break;

@@ -2,7 +2,12 @@ export const mainQuestions = [
     {
         type: "input",
         name: "option",
-        message: "Digite uma opção: \n 1 - Baixar \n 2 - Dar Avaliação \n 3 - Adicionar Filme à Lista do Usuário \n 4 - Sair",
+        message: `Digite uma opção:
+                  1 - Baixar
+                  2 - Dar Avaliação
+                  3 - Adicionar Filme à Lista do Usuário
+                  4 - Exibir Avaliacao Media de Filmes
+                  5 - Sair`,
     }
 ]
 
@@ -41,7 +46,7 @@ export const loginPasswordQuestion = [
 
 export const addMoviesToListQuestion = [
     {
-        type: "list",
+        type: "input",
         name: "option",
         message: "Digite o Id do Filme Desejado:"
     }
