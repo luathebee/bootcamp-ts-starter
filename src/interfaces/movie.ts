@@ -1,7 +1,7 @@
 import IndicativeRating from "../enums/indicativerating";
 
 export interface Movie {
-    name: string;
+    title: string;
 
     ratings: number[];
 
@@ -9,5 +9,5 @@ export interface Movie {
 
     duration: number;
 
-    directedBy: string;
+    directed_by: string;
 }

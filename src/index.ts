@@ -1,13 +1,11 @@
-import { addListener } from "process";
 import { Movie } from "./interfaces/movie";
-import RespostaHTTP from "./interfaces/respostahttp";
 import User from "./interfaces/user";
-import MovieService from "./services/MovieService";
-import inquirer from "inquirer"
-import { Console } from "console";
+import mainMenu from "./utils/mainMenu";
 import userLogin from "./utils/userLogin";
 
-var users: User[] = []
+
+//TODO: user array to DB or file
+var users: User[] = [];
 
 users.push({
     id: 1,
@@ -17,4 +15,15 @@ users.push({
     myList: []
 })
 
-userLogin(users);
+//TODO: movies list to DB or file, will be lost on restart
+let movies: Movie[] = [];
+
+/*
+    * Adicionar menu:
+    * Baixar filmes (Implementado!)
+    * Logar usuário (Implementado!)
+    o Dar avaliação (Escolher um filme e avaliacao)
+    o Listar filmes com média (usar o calculateMoviesWith Average)
+*/
+
+   userLogin(users,movies);
